@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data</title>
+  </head>
+  <body>
+    <header>
+      <h1>Data</h1>
+    </header>
+    <div id="data">loading...</div>
+
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io.connect('http://localhost:8080');
+
+        socket.on('refresh', function (value) {
+            $('#data').html(value);
+        });
+    </script>
+
+  </body>
+</html>
