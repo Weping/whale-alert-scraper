@@ -14,14 +14,15 @@ const scraper = {
     await page.waitForSelector(selector)
   },
   async runEvents(socket) {
-
-    // Details here https://pptr.dev/#?product=Puppeteer&show=api-pageexposefunctionname-puppeteerfunction
+    // Details here:
+    // https://pptr.dev/#?product=Puppeteer&show=api-pageexposefunctionname-puppeteerfunction
     await page.exposeFunction('emitter', (...data) => {
       socket.emit(...data)
     })
 
     await page.evaluate(function observeDom() {
-      // Details here https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver
+      // Details here:
+      // https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver
 
       // Select the target node
       var node = document.querySelector('.term-container')
